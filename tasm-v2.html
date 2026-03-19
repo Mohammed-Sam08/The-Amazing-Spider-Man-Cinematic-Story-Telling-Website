@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
+  <title>THE AMAZING SPIDER-MAN</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&family=Rajdhani:wght@300;400;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- LOADER -->
+  <div id="loader">
+    <div class="ld-logo">AMAZING</div>
+    <div class="ld-track">
+      <div class="ld-fill" id="ldfill"></div>
+    </div>
+    <div class="ld-txt" id="ldtxt">INITIALIZING WEB-SHOOTER</div>
+  </div>
+
+  <!-- CURSOR -->
+  <div id="cur"></div>
+  <div id="cur-dot"></div>
+
+  <!-- ═══════════════════════════════════════════
+     STICKY SCROLL EXPERIENCE  (500vh total)
+═══════════════════════════════════════════ -->
+  <div id="scroll-root">
+    <div id="sticky-wrap">
+
+      <!-- Scene 0: High-Res Cinematographic Poster -->
+      <div class="scene-layer" id="s0">
+        <img src="assets/img3.jpg" alt="The Amazing Spider-Man Cinematic Poster">
+      </div>
+
+      <!-- Scene 1: Electro Encounter (Action Focus) -->
+      <div class="scene-layer" id="s1">
+        <img src="assets/vid6.gif" alt="Spider-Man Agility Scene">
+      </div>
+
+      <!-- Scene 2: Skyscrapers & Night Ambience -->
+      <div class="scene-layer" id="s2">
+        <img src="assets/vid2.gif" alt="Spider-Man Overlooking NYC">
+      </div>
+
+      <!-- Scene 3: Unmasked/Reflection (The Human side) -->
+      <div class="scene-layer" id="s3">
+        <img src="assets/img2.jpg" alt="Spider-Man Unmasked Reflection">
+      </div>
+
+      <!-- ATMOSPHERE -->
+      <div class="tint" id="t1"></div>
+      <div class="tint" id="t2"></div>
+      <div class="tint" id="t3"></div>
+      <div id="vignette"></div>
+      <div id="scanlines"></div>
+
+      <!-- SPIDER SENSE -->
+      <div id="sense"></div>
+
+      <!-- HUD -->
+      <div id="hud">
+        <div id="prog-line"></div>
+        <div class="hc tl"></div>
+        <div class="hc tr"></div>
+        <div class="hc bl"></div>
+        <div class="hc br"></div>
+        <div id="scene-label">// SCENE 01</div>
+        <div id="pips">
+          <div class="pip on" data-l="ORIGIN" data-i="0" onclick="jumpTo(0)"></div>
+          <div class="pip" data-l="AGILITY" data-i="1" onclick="jumpTo(1)"></div>
+          <div class="pip" data-l="LEAP" data-i="2" onclick="jumpTo(2)"></div>
+          <div class="pip" data-l="LEGEND" data-i="3" onclick="jumpTo(3)"></div>
+        </div>
+      </div>
+
+      <!-- SCROLL HINT -->
+      <div id="shint">↓ &nbsp; SCROLL &nbsp; ↓</div>
+
+      <!-- ── SCENE OVERLAYS ── -->
+      <div class="ov on" id="ov0">
+        <p class="eye">MARVEL ENTERTAINMENT — COLUMBIA PICTURES</p>
+        <h1 class="h1">THE AMAZING<br><span class="acc">SPIDER-MAN.</span></h1>
+        <div class="gbar" style="margin:14px auto"></div>
+        <p class="sub" style="text-align:center;margin:0 auto;max-width:340px">He was not the hero you deserved.<br>He
+          was the one they feared.</p>
+      </div>
+
+      <div class="ov" id="ov1">
+        <p class="eye">SCENE 01 — MAX DILLON CONFRONTATION</p>
+        <h2 class="h2">AGILITY<br>IS KEY.</h2>
+        <div class="gbar"></div>
+        <div class="specs">
+          <div class="sp">RESPONSE TIME: 0.003s NEURAL LAG</div>
+          <div class="sp">PEAK VELOCITY: 187 MPH FREE-FALL</div>
+          <div class="sp">WEB TENSILE STRENGTH: 120N/cm²</div>
+          <div class="sp">THREAT: ELECTRO — OMEGA LEVEL</div>
+        </div>
+        <div class="tags">
+          <span class="tag">KINETIC</span>
+          <span class="tag">EVASION</span>
+          <span class="tag">ELECTRO-FIGHT</span>
+        </div>
+      </div>
+
+      <div class="ov" id="ov2">
+        <p class="eye">SCENE 02 — NIGHT PATROL, NEW YORK CITY</p>
+        <h2 class="h2">THE CITY<br>IS HIS<br>CANVAS.</h2>
+        <div class="gbar"></div>
+        <div class="specs">
+          <div class="sp">ALTITUDE: 847m ABOVE SEA LEVEL</div>
+          <div class="sp">SWING RADIUS: 340m MAX ARC</div>
+          <div class="sp">BIO-CABLE: OSCORP MARK-IV</div>
+          <div class="sp">AMBIENT TEMP: −4°C NIGHT PATROL</div>
+        </div>
+        <div class="tags">
+          <span class="tag">NIGHT SWING</span>
+          <span class="tag">WEB-FLIGHT</span>
+          <span class="tag">NYC</span>
+        </div>
+      </div>
+
+      <div class="ov" id="ov3">
+        <p class="eye">THE FINALE — PETER PARKER</p>
+        <h2 class="h2" style="font-size:clamp(52px,11vw,110px);text-align:center;max-width:100%">UNMASK<br>THE SECRET.
+        </h2>
+        <div class="gbar" style="margin:14px auto"></div>
+        <p class="sub" style="text-align:center;margin:0 auto;max-width:320px">With great power comes great
+          responsibility.<br>New York is waiting.</p>
+        <button class="cbtn" id="watch-btn"><span>▶</span> WATCH TRAILER</button>
+      </div>
+
+    </div>
+    <!-- /sticky-wrap -->
+
+  </div><!-- /scroll-root -->
+
+
+  <!-- ═══════════════════════════════════════════
+     BELOW FOLD — Full Website Content
+═══════════════════════════════════════════ -->
+  <div id="below">
+
+    <!-- Quote -->
+    <div class="quote-block reveal">
+      <div class="quote-text">"With <span class="hi">Great Power</span><br>Comes Great <span
+          class="hi">Responsibility.</span>"</div>
+      <div class="quote-attr">— BEN PARKER · THE AMAZING SPIDER-MAN · 2012</div>
+    </div>
+
+    <!-- Section: Movie Stills -->
+    <div class="sec-head reveal">
+      <h2>ICONIC SCENES</h2>
+      <p>THE AMAZING SPIDER-MAN — VISUAL ARCHIVE</p>
+      <div class="sec-divider"></div>
+    </div>
+
+    <div class="movie-strip">
+      <!-- Still 1: Electro fight -->
+      <div class="mframe reveal delay-1">
+        <img src="assets/vid1.gif" alt="Electro Fight" onerror="this.parentElement.style.background='#06101f'">
+        <div class="mframe-corner tl"></div>
+        <div class="mframe-corner br"></div>
+        <div class="mframe-tag">SCENE 01</div>
+        <div class="mframe-label">
+          THE ELECTRO CONFRONTATION
+          <span class="mframe-sub">TIMES SQUARE — NEW YORK CITY</span>
+        </div>
+      </div>
+
+      <!-- Still 2: Poster -->
+      <div class="mframe reveal delay-2">
+        <img src="assets/vid5.gif" alt="Spider-Man Poster" onerror="this.parentElement.style.background='#0a1628'">
+        <div class="mframe-corner tl"></div>
+        <div class="mframe-corner br"></div>
+        <div class="mframe-tag">SCENE 02</div>
+        <div class="mframe-label">
+          THE AMAZING SPIDER-MAN
+          <span class="mframe-sub">OFFICIAL THEATRICAL POSTER — 2012</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- GIF Strips in frames -->
+    <div class="sec-head reveal" style="padding-top:0">
+      <h2>ACTION SEQUENCES</h2>
+      <p>REAL-TIME GIF CAPTURES FROM THE FILM</p>
+      <div class="sec-divider"></div>
+    </div>
+
+    <div class="movie-strip single reveal delay-1" style="max-width:900px">
+      <div class="mframe" style="aspect-ratio:620/348">
+        <img src="assets/vid7.gif" alt="Electro Fight GIF" style="object-fit:cover">
+        <div class="mframe-corner tl"></div>
+        <div class="mframe-corner br"></div>
+        <div class="mframe-tag">LIVE ACTION</div>
+        <div class="mframe-label">
+          ELECTRO BATTLE — TIMES SQUARE
+          <span class="mframe-sub">SPIDER-MAN VS MAX DILLON · TASM 2 · 2014</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="movie-strip single reveal delay-2" style="max-width:900px;padding-top:2px">
+      <div class="mframe" style="aspect-ratio:500/224">
+        <img src="assets/vid8.gif" alt="Moon Swing GIF" style="object-fit:cover">
+        <div class="mframe-corner tl"></div>
+        <div class="mframe-corner br"></div>
+        <div class="mframe-tag">LIVE ACTION</div>
+        <div class="mframe-label">
+          NIGHT SWING
+          <span class="mframe-sub">WEB-FLIGHT SEQUENCE · NEW YORK CITY SKYLINE</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature Cards -->
+    <div class="feat-wrap">
+      <div class="sec-head reveal" style="padding:0 0 40px">
+        <h2>THE TECH BENEATH THE SUIT</h2>
+        <p>CLASSIFIED OSCORP DOSSIER — FILE 0047-TASM</p>
+      </div>
+      <div class="feat-grid">
+        <div class="fcard reveal delay-1">
+          <div class="fcard-n">01 — SENSORY</div>
+          <div class="fcard-t">Spider-Sense™ Protocol</div>
+          <div class="fcard-b">Bio-electric threat detection woven into Parker's enhanced nervous system. 340m
+            omni-directional range, sub-millisecond reaction latency — fires before conscious thought even registers
+            danger.</div>
+        </div>
+        <div class="fcard reveal delay-2">
+          <div class="fcard-n">02 — ADHESION</div>
+          <div class="fcard-t">Van der Waals Grip</div>
+          <div class="fcard-b">622,000 micro-setae per fingertip derived from Arachnus electrix DNA. Load-bearing
+            adhesion on any surface — glass, steel, Teflon — up to 4.7 tonnes static force without gloves.</div>
+        </div>
+        <div class="fcard reveal delay-3">
+          <div class="fcard-n">03 — PROPULSION</div>
+          <div class="fcard-t">Oscorp Bio-Cable Shooter</div>
+          <div class="fcard-b">Mark IV formula surpasses military Dyneema at 1/50th the diameter. Shot at 240fps,
+            electromagnetic trigger deploys in 0.004s. Anchor burst radius 8cm. 300ml wrist capacity.</div>
+        </div>
+        <div class="fcard reveal delay-4">
+          <div class="fcard-n">04 — COUNTERMEASURE</div>
+          <div class="fcard-t">Electro Resistance Protocol</div>
+          <div class="fcard-b">Carbon-nanotube shielding rated to 2.4MV discharge. HUD includes electromagnetic threat
+            mapping, volt-surge prediction, and evasion-path overlay at 60fps. Spider-sense synced.</div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="ft-logo">TASM // EXPERIENCE v3</div>
+      <div class="ft-note">REAL MOVIE ASSETS · SCROLL-LINKED · © 2024 CONCEPT DEMO</div>
+    </footer>
+  </div><!-- /below -->
+  <script src="script.js"></script>
+</body>
+
+</html>
